@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240821003
+current_version=20240821004
 
 update_script() {
     # 指定URL
@@ -76,8 +76,7 @@ function uninstall_node() {
         [yY][eE][sS]|[yY]) 
             echo "开始卸载节点..."
             stop_node
-            sudo rm -f /etc/systemd/system/validator.service
-            rm -rf $HOME/llm-loss-validator
+            sudo rm -f $HOME/.rivalz $HOME/.db
             echo "节点卸载完成。"
             ;;
         *)

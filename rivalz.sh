@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240822001
+current_version=20240822002
 
 function update_script() {
     # 指定URL
@@ -99,6 +99,7 @@ function main_menu() {
 		echo "当前版本：$current_version"
 		echo "沟通电报群：https://t.me/lumaogogogo"
 		echo "推荐配置：4C8G3T;磁盘越多越好，最大3T"
+        echo "本脚本以撸毛先锋队社区哈哈哥的教程为基础改写，@sdohuajia授权"
 	    echo "请选择要执行的操作:"
 	    echo "1. 部署节点 install_node"
 	    echo "2. 节点日志 view_logs"

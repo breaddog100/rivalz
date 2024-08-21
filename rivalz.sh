@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240821002
+current_version=20240821003
 
 update_script() {
     # 指定URL
@@ -95,10 +95,10 @@ function main_menu() {
 		echo "沟通电报群：https://t.me/lumaogogogo"
 		echo "推荐配置：4C8G3T;磁盘越多越好，最大3T"
 	    echo "请选择要执行的操作:"
-	    echo "1. 部署训练节点 install_node"
-	    echo "2. 训练节点日志 view_logs"
-	    echo "3. 停止训练节点 stop_node"
-	    echo "1618. 卸载验证节点 uninstall_node"
+	    echo "1. 部署节点 install_node"
+	    echo "2. 节点日志 view_logs"
+	    echo "3. 停止节点 stop_node"
+	    echo "1618. 卸载节点 uninstall_node"
 	    echo "0. 退出脚本 exit"
 	    read -p "请输入选项: " OPTION
 	

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240821001
+current_version=20240821002
 
 update_script() {
     # 指定URL
@@ -69,7 +69,7 @@ function stop_node(){
 }
 
 # 卸载节点
-function uninstall_validator_node() {
+function uninstall_node() {
     echo "确定要卸载节点吗？[Y/N]"
     read -r -p "请确认: " response
     case "$response" in
@@ -95,18 +95,18 @@ function main_menu() {
 		echo "沟通电报群：https://t.me/lumaogogogo"
 		echo "推荐配置：4C8G3T;磁盘越多越好，最大3T"
 	    echo "请选择要执行的操作:"
-	    echo "1. 部署训练节点 install_training_node"
-	    echo "2. 训练节点日志 view_training_logs"
-	    echo "3. 停止训练节点 stop_training_node"
-	    echo "1618. 卸载验证节点 uninstall_validator_node"
+	    echo "1. 部署训练节点 install_node"
+	    echo "2. 训练节点日志 view_logs"
+	    echo "3. 停止训练节点 stop_node"
+	    echo "1618. 卸载验证节点 uninstall_node"
 	    echo "0. 退出脚本 exit"
 	    read -p "请输入选项: " OPTION
 	
 	    case $OPTION in
-	    1) install_training_node ;;
-	    2) view_training_logs ;;
-	    3) stop_training_node ;;
-	    1618) uninstall_validator_node ;;
+	    1) install_node ;;
+	    2) view_logs ;;
+	    3) stop_node ;;
+	    1618) uninstall_node ;;
 
 	    0) echo "退出脚本。"; exit 0 ;;
 	    *) echo "无效选项，请重新输入。"; sleep 3 ;;

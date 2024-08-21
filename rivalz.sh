@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240821008
+current_version=20240822001
 
 function update_script() {
     # 指定URL
@@ -43,8 +43,8 @@ function update_script() {
 # 部署节点
 function install_node() {
 
-    sudo apt update && sudo apt upgrade -y
-    sudo apt install -y pkg in git curl screen npm
+    sudo apt update
+    sudo apt install -y git curl screen npm
 
     curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 
@@ -58,6 +58,8 @@ function install_node() {
     sudo npm i -g rivalz-node-cli
 
     rivalz update-version
+    echo "看到成功信息后按键盘：Ctrl+a+d退出"
+    sleep 3
     screen -mS rivalz rivalz run
 
 	echo "节点部署完成..."

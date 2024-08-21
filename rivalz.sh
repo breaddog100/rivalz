@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240821004
+current_version=20240821006
 
-update_script() {
+function update_script() {
     # 指定URL
     update_url="https://raw.githubusercontent.com/breaddog100/rivalz/main/rivalz.sh"
     file_name=$(basename "$update_url")
@@ -46,9 +46,24 @@ function install_node() {
     sudo apt update && sudo apt upgrade -y
     sudo apt install -y pkg in git curl screen npm
 
-    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+    install_nodejs() {
+
+        # 添加 NodeSource 的 20.x 版本源
+        curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+        # 检查是否需要重启以应用内核更新
+        if [[ $(needrestart -r | grep 'NEEDRESTART-KSTA:') ]]; then
+            echo "A kernel update requires a restart to take effect."
+            echo "Exiting Node.js installation function. Please reboot the system and then re-run this script."
+            return 1
+        fi
+
+    }
+
+    # 安装 Node.js
     sudo apt install -y nodejs
-    nodejs -v
+
+    # 检查 Node.js 版本
+    node -v
 
     sudo npm list -g rivalz-node-cli
     sudo npm i -g rivalz-node-cli

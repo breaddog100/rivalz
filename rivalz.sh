@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240821007
+current_version=20240821008
 
 function update_script() {
     # 指定URL
@@ -45,20 +45,8 @@ function install_node() {
 
     sudo apt update && sudo apt upgrade -y
     sudo apt install -y pkg in git curl screen npm
-    install_nodejs
 
-    install_nodejs() {
-
-        # 添加 NodeSource 的 20.x 版本源
-        curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-        # 检查是否需要重启以应用内核更新
-        if [[ $(needrestart -r | grep 'NEEDRESTART-KSTA:') ]]; then
-            echo "A kernel update requires a restart to take effect."
-            echo "Exiting Node.js installation function. Please reboot the system and then re-run this script."
-            return 1
-        fi
-
-    }
+    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 
     # 安装 Node.js
     sudo apt install -y nodejs

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240821006
+current_version=20240821007
 
 function update_script() {
     # 指定URL
@@ -45,6 +45,7 @@ function install_node() {
 
     sudo apt update && sudo apt upgrade -y
     sudo apt install -y pkg in git curl screen npm
+    install_nodejs
 
     install_nodejs() {
 

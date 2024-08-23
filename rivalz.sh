@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240822002
+current_version=20240823001
 
 function update_script() {
     # 指定URL
@@ -43,8 +43,8 @@ function update_script() {
 # 部署节点
 function install_node() {
 
-    sudo apt update
-    sudo apt install -y git curl screen npm
+    #sudo apt update
+    #sudo apt install -y git curl screen npm
 
     curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 

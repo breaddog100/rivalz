@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 设置版本号
-current_version=20240823001
+current_version=20240823002
 
 function update_script() {
     # 指定URL
@@ -65,6 +65,13 @@ function install_node() {
 	echo "节点部署完成..."
 }
 
+# 启动节点
+function start_node(){
+    echo "看到成功信息后按键盘：Ctrl+a+d退出"
+    sleep 3
+    screen -mS rivalz rivalz run
+}
+
 # 查看节点日志
 function view_logs(){
 	screen -r rivalz
@@ -104,6 +111,7 @@ function main_menu() {
 	    echo "1. 部署节点 install_node"
 	    echo "2. 节点日志 view_logs"
 	    echo "3. 停止节点 stop_node"
+        echo "4. 启动节点 start_node"
 	    echo "1618. 卸载节点 uninstall_node"
 	    echo "0. 退出脚本 exit"
 	    read -p "请输入选项: " OPTION
@@ -112,6 +120,7 @@ function main_menu() {
 	    1) install_node ;;
 	    2) view_logs ;;
 	    3) stop_node ;;
+        4) start_node ;;
 	    1618) uninstall_node ;;
 
 	    0) echo "退出脚本。"; exit 0 ;;
